@@ -7,7 +7,12 @@ def main():
             if len(sys.argv[0]) > 1:
                 n = sys.argv[1]
         except:        
-            n = input("Enter the number: ")
+            n = input("""Enter the number:
+                
+                
+                      !ATTENTION! 
+                      If you want exit from the programm, enter "exit" 
+                      """)
         if n == "exit":
             break
         else: 
@@ -45,14 +50,16 @@ def main():
                             return 1
                         return (2 * fib(n + 1) - 1) 
                               
-                             
+                    print()         
                     print("Leonardo number is ", leon(n)) 
                 
                 else: 
+                    print()
                     print("You make a mistake, please, write \n \
                           a positive number: ")
                 
             except:
+                print()
                 print("You make a mistake, please, write \n \
                       an integer positive number: ")
 if __name__ == "__main__":
