@@ -1,17 +1,19 @@
 #Power of 2
 import sys
 def main():
-    while True:
+    flag = True
+    while flag:
             try: 
                 if len(sys.argv[0]) > 1:
                     x = sys.argv[1]
+                    flag = False
             except:
                 x = input("""\tEnter the number: 
                             
                                 !ATTENTION! 
                                 If you want exit from the programm, enter "exit" 
                                   """)
-            if x == "exit":
+            if x == "exit" or x == "EXIT":
                 break
             else: 
                 try:
@@ -33,5 +35,3 @@ def main():
      
 if __name__ == "__main__":
     main()
-    quit()
- 
