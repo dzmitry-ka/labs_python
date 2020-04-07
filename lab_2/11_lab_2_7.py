@@ -2,10 +2,12 @@
 import sys
 
 def main():
-    while True:
+    flag = True
+    while flag:
         try: 
             if len(sys.argv[0]) > 1:
                 n = sys.argv[1]
+                flag = False
         except:        
             n = input("""Enter the number:
                 
