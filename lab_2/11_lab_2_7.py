@@ -15,29 +15,26 @@ def main():
                       !ATTENTION! 
                       If you want exit from the programm, enter "exit" 
                       """)
-        if n == "exit":
+        if n == "exit" or n == "EXIT":
             break
         else: 
             try:
                 n = int(n)
                 if n >= 0:
-                    def multiply(Q, M) :
-                        x = Q[0][0] * M[0][0] + Q[0][1] * M[1][0] 
-                        y = Q[0][0] * M[0][1] + Q[0][1] * M[1][1] 
-                        z = Q[1][0] * M[0][0] + Q[1][1] * M[1][0] 
-                        w = Q[1][0] * M[0][1] + Q[1][1] * M[1][1] 
-                        Q[0][0] = x 
-                        Q[0][1] = y 
-                        Q[1][0] = z 
-                        Q[1][1] = w 
+                    def multiplication(Q, M) :
+                        a = Q[0][0] * M[0][0] + Q[0][1] * M[1][0] 
+                        b = Q[0][0] * M[0][1] + Q[0][1] * M[1][1] 
+                        c = Q[1][0] * M[0][0] + Q[1][1] * M[1][0] 
+                        d = Q[1][0] * M[0][1] + Q[1][1] * M[1][1] 
+                        Q[0][0] = a 
+                        Q[0][1] = b 
+                        Q[1][0] = c 
+                        Q[1][1] = d 
                            
                     def power(Q, n) : 
-                        M = [[ 1, 1 ], [ 1, 0 ] ] 
-                        
-                            # n - 1 times multiply the matrix 
-                            # to {{1, 0}, {0, 1}} 
+                        M = [[ 1, 1 ], [ 1, 0 ] ]                      
                         for i in range(2, n + 1) : 
-                                multiply(Q, M) 
+                                multiplication(Q, M) 
                                   
                           
                     def fib(n) : 
