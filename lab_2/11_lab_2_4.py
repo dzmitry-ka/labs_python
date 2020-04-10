@@ -1,4 +1,6 @@
 import sys
+import ast      
+
 
 def flatten_it(array):
     try:
@@ -12,14 +14,14 @@ def flatten_it(array):
     
 def main():
     if len(sys.argv) > 1:
-        array =(sys.argv[1])
+        array = ast.literal_eval(sys.argv[1])
     else:
         array = [1, [2, 3], "sdfsfss",[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[343434]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [[6, 7]]]
         #array = [0]
         #array[0] = array
     try:
         print(flatten_it(array))
-    except ValueError:
+    except ValueError: 
         print('Array that refers to itself')
         
 if __name__ == "__main__":
