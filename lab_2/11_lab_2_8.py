@@ -1,4 +1,4 @@
-#Power of 2
+#The power of 2
 import sys
 def main():
     flag = True
