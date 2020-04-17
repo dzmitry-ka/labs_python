@@ -10,21 +10,21 @@ def to_json(obj):
             if type(obj) == str:
                 obj = '"' + obj + '"'
             if type(obj) == None:
-                obj = ""
+                obj = 'null'
             if type(obj) == bool:
                 obj = "obj"
             if type(obj) == dict:
+                line = ''
                 for element in range(len(obj)):
-                    line = ''
-                    line += to_json(obj[element])
+                    line += + ': ' + to_json(obj[element])
                     if element < len(obj) - 1:
                         line += ', '
                     else: break
                 obj = '{' + line + '}'
                 
             if type(obj) == list or type(obj) == tuple:
+                line = ''
                 for element in range(len(obj)):
-                    line = ''
                     line += to_json(obj[element])
                     if element < len(obj) - 1:
                         line += ', '
@@ -42,8 +42,9 @@ def main():
     if len(sys.argv) > 1:
         obj = literal_eval(sys.argv[1])
     else:
-        obj = [1, [2, 3], "sdfsfss", [[6, 7]],"Hey Jude"]
+        obj = input("Enter your words: ")
     try:
+        obj = literal_eval(obj)
         print(to_json(obj))
     except ValueError: 
         print('Array that refers to itself')
