@@ -3,11 +3,11 @@ import string
 import sys
 import re
 import ast
-import math
+
 
 def load(i, B):
-    quantity =  math.floor(i/B*100)
-    procent = '✡'*math.floor(quantity/3)+'[]'*math.ceil((100-quantity)/3)
+    quantity =  int(i/B*100) 
+    procent = '✡'*int(quantity/3)+'[]'*int((100-quantity)/3) 
     sys.stdout.write('\rProgress: {1} ◀ {0}% ▶ '.format(quantity, procent))
     sys.stdout.flush()
 
@@ -100,8 +100,7 @@ def main():
             sys.exit()
 
         
-    lines = generator(K,L,B,alphabet)
-    #print(lines)     
+    lines = generator(K,L,B,alphabet)     
     file.write(lines)
     file.close()
 
