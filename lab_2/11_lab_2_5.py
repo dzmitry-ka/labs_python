@@ -51,3 +51,14 @@ def main():
         
 if __name__ == "__main__":
     main()
+""" MLB_team = {
+    'Colorado' : 'Rockies',
+    'Boston'   : 'Red Sox',
+    'Minnesota': 'Twins',
+    'Milwaukee': 'Brewers',
+    'Seattle'  : 'Mariners'
+    }
+
+for item in MLB_team.items():
+    print(item[0], item[1])
+    print(type(item))"""
