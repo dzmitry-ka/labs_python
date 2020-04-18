@@ -50,9 +50,15 @@ def main():
             if search(r'\b.txt\b', fileName):
                 file = open(fileName, "r")
                 obj = file.read()
-                file.close()  
+                try:
+                    obj = literal_eval(obj)
+                except:
+                    obj = obj
             else:
-                obj = literal_eval(sys.argv[1])
+                try:
+                    obj = literal_eval(obj)
+                except:
+                    obj = obj
                 
         except:    
             print("You are not enter .txt file or you enter a space in the",
@@ -61,17 +67,20 @@ def main():
             sys.exit()
     else:
         obj = input("Enter your words: ")
-    try:
         try:
-            obj = literal_eval(obj)
-        except:
-            obj = obj
-        print(to_json(obj))
+            try:
+                obj = literal_eval(obj)
+            except:
+                obj = obj
+                
+            
+        except ValueError: 
+            print("Your object in question is not a type from this list: ")
+            print("float, int, str, tuple, dict, list, None, bool")
         
-    except ValueError: 
-        print("Your object in question is not a type from this list: ")
-        print("float, int, str, tuple, dict, list, None, bool")
-        
+    print(to_json(obj))    
         
 if __name__ == "__main__":
     main()
+
+
