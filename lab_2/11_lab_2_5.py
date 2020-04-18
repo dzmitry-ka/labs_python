@@ -4,11 +4,12 @@ from re import search
 
 def to_json(obj):
     try:
-        if type(obj) in (float, int, str, tuple, dict, list, None, bool):
-            if type(obj) == int or type(obj) == float:
-                obj = str(obj)
+        if (type(obj) in (float, int, str, tuple, dict, list, bool) 
+            or obj == None):
             if type(obj) == str:
                 obj = '"' + obj + '"'
+            if type(obj) == int or type(obj) == float:
+                obj = str(obj)
             if type(obj) == None:
                 obj = 'null'
             if type(obj) == bool:
@@ -18,13 +19,13 @@ def to_json(obj):
                     obj = 'false'              
             if type(obj) == dict:
                 line = ''
-                for element in range(len(obj)):
-                    for item in obj.items():
-                        line = ('"' + to_json(item[0]) + '"' 
-                                +' : ' + to_json(item[1]))
-                        if element < len(obj) - 1:
-                            line += ', '
-                        else: break
+                i = 0
+                for item in obj.items():
+                    line += to_json(item[0]) + ' : ' + to_json(item[1])
+                    if i < len(obj) - 1:
+                        line += ', '
+                        i += 1
+                    else: break
                 obj = '{' + line + '}'
             if type(obj) == list or type(obj) == tuple:
                 line = ''
@@ -61,10 +62,11 @@ def main():
     else:
         obj = input("Enter your words: ")
     try:
-        obj = literal_eval(obj)
-        a = to_json(obj)
-        print(a)
-        print(type(a))
+        try:
+            obj = literal_eval(obj)
+        except:
+            obj = obj
+        print(to_json(obj))
         
     except ValueError: 
         print("Your object in question is not a type from this list: ")
@@ -73,4 +75,3 @@ def main():
         
 if __name__ == "__main__":
     main()
-
