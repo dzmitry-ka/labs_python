@@ -70,5 +70,5 @@ if len(sys.argv) == 1:
 else:
     obj = open(sys.argv[1]).read()
     
-print("\nThe original object: ", obj)
+print("\nThe original object: ", obj) 
 print("\nThe converted object: ", from_json(obj))
